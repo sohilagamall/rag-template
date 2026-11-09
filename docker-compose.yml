@@ -1,0 +1,13 @@
+services:
+  db:
+    image: pgvector/pgvector:0.8.7-pg18-trixie
+    container_name: rag-template-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: rag_template
+    ports:
+      - "5435:5432"      
+    volumes:
+      - ./pgdata:/var/lib/postgresql
